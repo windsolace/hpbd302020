@@ -23,16 +23,31 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|svg|jpg)/,
-        use:[
-            'file-loader'
-        ]
+        test: /\.css$/,
+        loader:'file-loader',
+        options:{
+            name:'css/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(png|gif|svg|jpg)$/,
+        loader:'file-loader',
+        options:{
+            name:'img/[name].[ext]'
+        }
       },
       {
         test: /\.html/,
         loader:'file-loader',
         options:{
             name: '[name].[ext]'
+        }
+      },
+      {
+        test: /(plugins|modernizr-3.8.0.min)\.js/,
+        loader:'file-loader',
+        options:{
+            name: 'js/vendor/[name].[ext]'
         }
       },
       {
