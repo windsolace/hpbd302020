@@ -30,9 +30,10 @@ module.exports = {
       },
       {
         test: /\.html/,
-        use:[
-            'file-loader'
-        ]
+        loader:'file-loader',
+        options:{
+            name: '[name].[ext]'
+        }
       },
       {
         test: /\.(otf|woff|woff2|eot|ttf)$/,
