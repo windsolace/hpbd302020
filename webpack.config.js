@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 // const path = require("path");
-const jquery = require('jquery');
 
 module.exports = {
   mode: "development",
