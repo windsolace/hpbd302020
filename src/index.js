@@ -1,8 +1,19 @@
-import './css/main.less';
+
+import './css/nes.min.css';
+import './css/normalize.css';
+import './css/main.less'; //this is loaded by webpack
 import './css/NuKinakoMochi-Reg.otf';
 import './index.html';
-//name=?&puzzle=
+import './js/vendor/modernizr-3.8.0.min.js';
+import './js/vendor/plugins.js';
 
+//load all images
+function importAll(r) {
+    return r.keys().map(r);
+}
+const images = importAll(require.context('./img', true, /\.(png|jpe?g|svg|gif)$/));
+
+//name=?&puzzle=
 var player = {
     "name":"Adventurer"
 };
