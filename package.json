@@ -1,0 +1,17 @@
+{
+  "name": "30abday",
+  "version": "1.0.0",
+  "description": "Secret site for a special day",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Eugene",
+  "license": "ISC",
+  "dependencies": {
+    "nes.css": "^2.3.0"
+  }
+}
