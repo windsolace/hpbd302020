@@ -1,10 +1,23 @@
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 // const path = require("path");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   output: {
     filename: "./bundle.js",
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true, // Must be set to true if using source-maps in production
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
   },
   module: {
     rules: [

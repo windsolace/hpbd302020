@@ -25,7 +25,6 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-  <!-- Add your site or application content here -->
   <div id="main">
     <div class="container container--loading">
       <div class="container container--loading-sprites">
@@ -45,44 +44,446 @@
         <progress class="nes-progress is-primary" value="0" max="100"></progress>
       </div>
       <div class="container container--loading-sprites">
-        <a class="nes-btn is-disabled btn--load" href="#" disabled>OK</a>
+        <a class="nes-btn is-disabled btn--load" href="#">OK</a>
       </div>
       
 
 
     </div>
-    <div class="container container--countdown" style="display:none;">
+    <!-- HAPPY BIRTHDAY GIF -->
+    <div class="container container--countdown container--countdown-1" style="display:none;">
       <div class="container__content">
         <div class="nes-container is-rounded is-centered">
-          <p class="is-warning">Something is happening!!!</p>
+          <p class="is-warning countdown__msg">Something is happening!!!</p>
           <div class="container__content--cd">
             <p id="cdtimer"></p>
+            <div>
+              <img class="sprite-gif" id="sprite-bday" src="./img/happybday-night.gif" style="display:none"/>
+            </div>
             <div class="nes-balloon from-left">
               <p id="bubble__text--cd">? !</p>
             </div>
             <div class="container__sprite-row">
               <img class="sprite--chibi left" data-quotetype="cd" data-quoteid="main" src="./img/Audrey-normal.gif"/>
               <img class="sprite--chibi right" data-quotetype="cd" data-quoteid="you" src="./img/You-normal.gif"/>
-            </div>  
+            </div>
+            <button class="nes-btn btn-yay is-disabled" disabled>YAY!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dialog class="nes-dialog" id="dialog-winner">
+      <form method="dialog">
+        <p class="title">Success</p>
+        <p>You are correct!</p>
+        <p class="clue">You are correct!</p>
+        <div><img class="sprite--chibi" id="winner-sprite" src="./img/You.gif"/></div>  
+        <menu class="dialog-menu">
+          <button class="nes-btn is-success">YAY!</button>
+        </menu>
+      </form>
+    </dialog>
+    <dialog class="nes-dialog" id="dialog-loser">
+      <form method="dialog">
+        <p class="title">BOO BOO!</p>
+        <p>Please try again</p>
+        <div><img class="sprite--chibi" id="loser-sprite" src="./img/Dia.gif"/></div>
+        <menu class="dialog-menu">
+          <button class="nes-btn is-error">Try Again</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div class="container container--intro" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p id="player-intro"></p>
+          <p>Press start to begin your adventure</p>
+          <a class="nes-btn btn-start" href="#">START</a>
+          <div><img class="sprite--chibi" src="./img/Audrey-normal.gif"/><img class="sprite--chibi" src="./img/You-normal.gif"/></div>  
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Staycation location - 1a
+    -->
+    <div class="container puzzle" data-puzzleid="1a" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 1a</p>
+          <div>
+            <img class="sprite-gif" src="./img/drbr.gif"/>
+          </div> 
+          <div class="nes-field">
+            <input type="text" id="puzzle-1a_ans" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Staycation location - 1b
+    -->
+    <div class="container puzzle" data-puzzleid="1b" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 1b</p>
+          <div>
+            <img class="sprite-gif" src="./img/nms.gif"/>
+          </div>  
+
+          <div class="nes-field">
+            <input type="text" id="puzzle-1b_ans" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq is-disabled" disabled href="#">Next Question</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- 
+      Staycation location - 1c 
+    -->
+    <div class="container puzzle" data-puzzleid="1c" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 1c</p>
+          <div>
+            <div class="nes-balloon from-right">
+              <p id="bubble__text--p1c">フンフン!</p>
+            </div>
+            <div>
+              <img class="sprite--chibi puzzle-1__sprite left"  data-quotetype="p1c" data-quoteid="ruby" src="./img/Ruby.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite right"  data-quotetype="p1c" data-quoteid="eli" src="./img/Eli.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite right"  data-quotetype="p1c" data-quoteid="hanamaru" src="./img/Hanamaru.gif"/>
+            </div>
+            <div><span>1</span><span>1</span><span>2</span></div>
+          </div>  
+          <div class="nes-field">
+            <input type="text" id="puzzle-1c_ans" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Staycation location - 1d
+    -->
+    <div class="container puzzle" data-puzzleid="1d" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 1d</p>
+          <div>
+            <div>
+              <p>Harry's</p>
+              <p>Konjiki Hototogisu</p>
+              <p>Prive</p>
+              <p>Gyukaku</p>
+            </div>
+          </div>  
+
+          <div class="nes-field">
+            <input type="text" id="puzzle-1d_ans" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Staycation location - FINAL
+      Are you cheating? Here's a hint for you:
+      1.290647,103.8539352
+      1.2954308,103.8496061
+      1.2927612,103.8503824
+      1.2942412,103.851834
+    -->
+    <div class="container puzzle" data-puzzleid="1e" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>The 4 earlier locations are clues to the location</p>
+          <p>Where is the location?</p>
+          <br/> 
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 
+      Dinner
+      Cheating again? Wrote the text in the GIF here for your convenience:
+
+      本気をぶつけ合って　手にいよう未来を！
+
+      味方なだ　空もこの海も
+      「さあんばるんだ！」と、かがいてるよ
+      遠くへ　遠くへ　声が届くように
+      もっと大きく夢を叫ぼうか
+    -->
+    <div class="container puzzle" data-puzzleid="2" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 2</p>
+          <div>
+            <img class="sprite-gif sprite-gif--fixed" src="./img/miraiboku.gif"/>
+            <div class="sprite-gif sprite-gif--animated"></div>
+          </div> 
+          <br/>
+
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--second countdown to prevent puzzle from completing too quickly-->
+    <div class="container container--countdown puzzle container--countdown-2" data-puzzleid="2a" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p class="is-warning countdown__msg">COOLDOWN</p>
+          <div class="container__content--cd">
+            <p id="cdtimer2"></p>
+            <div class="nes-balloon from-left">
+              <p id="bubble__text--cd">? !</p>
+            </div>
+            <div class="container__sprite-row">
+              <img class="sprite--chibi left" data-quotetype="cd" data-quoteid="main" src="./img/Audrey-normal.gif"/>
+              <img class="sprite--chibi right" data-quotetype="cd" data-quoteid="you" src="./img/You-normal.gif"/>
+            </div>
+            <div class="nes-field">
+              <button class="nes-btn btn-yay is-disabled" disabled>I'M READY!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Secret Puzzle - ??
+    -->
+    <div class="container puzzle" data-puzzleid="3" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Puzzle 3</p>
+          <div>
+            <div class="nes-balloon from-right">
+              <p id="bubble__text--p3">Call and Response をしよう！</p>
+            </div>
+            <div>
+              <img class="sprite--chibi puzzle-1__sprite left" data-quotetype="p3" data-quoteid="kasumi" src="./img/Kasumi.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite left" data-quotetype="p3" data-quoteid="shizuku" src="./img/Shizuku.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite right" data-quotetype="p3" data-quoteid="ruby" src="./img/Ruby.gif"/>
+            </div>
+            <div><span>3</span><span>1</span><span>2</span></div>
+          </div>  
+
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Afternoon
+      Hint: song name?
+    -->
+    <div class="container puzzle" data-puzzleid="4" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <div>
+            <p>Puzzle 4</p>
+            <div>
+              <p>Attention Please</p>
+              <p>夢を掛けてきた</p>
+              <p>たかまる想いはおさえて</p>
+              <p>とおくからきこえたよ　ここにおいでって</p>
+              <p>希望はここから生まれ ここで消えるのか</p>
+              <p>アレもコレも欲しくなるなる　たまらない</p>
+              <p>くやみたくなかったきもちの先に</p>
+              <p>ひたいつたう汗をぬぐい　みずらの手で終わりにしよう</p>
+            </div>
+            <div>
+              <span>2</span><span>3</span><span>2</span><span>5</span><span>1</span><span>3</span><span>3</span><span>6</span>
+            </div>
+            <br/>
+          </div> 
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container puzzle" data-puzzleid="winner-1" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>YOU ARE A WINNER!</p>
+          <i class="nes-icon trophy is-large"></i>
+          <i class="nes-icon trophy is-large"></i>
+          <i class="nes-icon trophy is-large"></i>
+          <p>TRY THE BONUS PUZZLES</p>
+          <div>
+            <div>
+              <img class="sprite--chibi" src="./img/Riko.gif"/>
+              <img class="sprite--chibi" src="./img/Chika.gif"/>
+              <img class="sprite--chibi" src="./img/You.gif"/>
+      
+              <img class="sprite--chibi" src="./img/Hanamaru.gif"/>
+              <img class="sprite--chibi" src="./img/Ruby.gif"/>
+              <img class="sprite--chibi" src="./img/Yoshiko.gif"/>
+      
+              <img class="sprite--chibi" src="./img/Mari.gif"/>
+              <img class="sprite--chibi" src="./img/Kanan.gif"/>
+              <img class="sprite--chibi" src="./img/Dia.gif"/>
+            </div>
+          </div>  
+
+          <div class="nes-field">
+            <a class="nes-btn btn-nextq" style="display:block" href="#">TRY</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Bonus: Initial plan from your home
+      kasumi
+      shizuku
+      kurosawa
+    -->
+    <div class="container puzzle puzzle--bonus" data-puzzleid="bonus1" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Bonus - 1</p>
+          <div>
+            <div class="nes-balloon from-right">
+              <p id="bubble__text--p1">ピギー!</p>
+            </div>
+            <div>
+              <img class="sprite--chibi puzzle-1__sprite left" data-quotetype="p1" data-quoteid="kasumi" src="./img/Kasumi.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite left" data-quotetype="p1" data-quoteid="shizuku" src="./img/Shizuku.gif"/>
+              <img class="sprite--chibi puzzle-1__sprite right" data-quotetype="p1" data-quoteid="ruby" src="./img/Ruby.gif"/>
+            </div>
+            <div><span>2</span><span>1</span><span>2</span></div>
+          </div>  
+
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Bonus: Initial plan after tiger brewery - restaurant
+      644224
+    -->
+    <div class="container puzzle puzzle--bonus" data-puzzleid="bonus2" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Bonus - 2</p>
+          <div class="container__puzzle container__puzzle--5">
+            <p>chicken</p>
+            <p>salmon</p>
+            <p>dumplings</p>
+            <p>prawns</p>
+            <p>sesame</p>
+            <p>lobster</p>
+            <p>scallops</p>
+          </div>
+          <div><span>644224</span></div>
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      Bonus: LET'S TRY THIS PLACE! - activity location
+    -->
+    <div class="container puzzle puzzle--bonus" data-puzzleid="bonus3" style="display:none;">
+      <div class="container__content">
+        <div class="nes-container is-rounded is-centered">
+          <p>Bonus - 3</p>
+          <div class="container__puzzle container__puzzle--5">
+            <img class="sprite--chibi" src="./img/Shizuku.gif"/>
+            <img class="sprite--chibi" src="./img/Riko.gif"/>
+            <img class="sprite--chibi" src="./img/Kanan.gif"/>
+            <img class="sprite--chibi" src="./img/Rina.gif"/>
+          </div>
+          <div><span>3374</span></div>
+          <div class="nes-field">
+            <input type="text" class="nes-input">
+            <a class="nes-btn btn-guess" href="#">GO!</a>
+            <a class="nes-btn btn-nextq" href="#">Next Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="container puzzle" data-puzzleid="winner-2" style="display:none;">
+    <div class="container__content">
+      <div class="nes-container is-rounded is-centered">
+        <p>YOU ARE A BIG WINNER!</p>
+        <p>You solved all the puzzles! I hope you had fun!</p>
+        <p>Have mercy on me please</p>
+        <i class="nes-icon is-large heart"></i>
+        <div>
+          <div>
+            <img class="sprite--chibi" src="./img/Audrey.gif"/>
+
+            <img class="sprite--chibi" src="./img/Riko.gif"/>
+            <img class="sprite--chibi" src="./img/Chika.gif"/>
+            <img class="sprite--chibi" src="./img/You.gif"/>
+    
+            <img class="sprite--chibi" src="./img/Hanamaru.gif"/>
+            <img class="sprite--chibi" src="./img/Ruby.gif"/>
+            <img class="sprite--chibi" src="./img/Yoshiko.gif"/>
+    
+            <img class="sprite--chibi" src="./img/Mari.gif"/>
+            <img class="sprite--chibi" src="./img/Kanan.gif"/>
+            <img class="sprite--chibi" src="./img/Dia.gif"/>
+
+            <img class="sprite--chibi" src="./img/Eli.gif"/>
+            <img class="sprite--chibi" src="./img/Shizuku.gif"/>
+            <img class="sprite--chibi" src="./img/Kasumi.gif"/>
+            <img class="sprite--chibi" src="./img/Rina.gif"/>
+          </div>
+        </div>  
+      </div>
+    </div>
   </div>
   <script src="./js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="./js/vendor/plugins.js"></script>
   <script src="bundle.js"></script>
-  <!-- <script src="../js/main.js"></script> -->
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <!-- <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 </body>
 
 </html>
