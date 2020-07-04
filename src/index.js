@@ -29,6 +29,9 @@ var quotes = {
     
 }
 
+var $containerLoading = $('.container--loading');
+var $containerCountdown = $('.container--countdown');
+
 var mainModule=(($)=> {
     var _introMessage = "Hello {player}!";    
     var $progressbar = $('#progress progress');
@@ -50,24 +53,6 @@ var mainModule=(($)=> {
         }
     }
 
-    /*
-     * Do a mini jump on click of a character sprite
-     */
-    // function _initSpriteJump() {
-    //     $('.sprite--chibi').each((index, item)=> {
-    //         $(item).on('click', (el)=>{
-    //             //jump
-    //             $(el).css('transform', 'translate(0, -10px)');
-    //             console.log("jumping");
-    //             window.setTimeout(() => {
-    //                 $(el).css('transform', 'translate(0, 10px)');
-    //                 console.log("jumped");
-    //             }, 100);
-                
-    //         });
-    //     });
-    // }
-
     /**
      * Start/stop the loading bar. 
      * @param load - indicate whether to show or hide loader
@@ -76,18 +61,19 @@ var mainModule=(($)=> {
     function _doLoading(load, reset) {
         // _initSpriteJump();
 
-        var $loadingcontainer = $('.container--loading');
+        var $loadingcontainer = $containerLoading;
         if(load) {
             $loadingcontainer.show();
             if(reset) $progressbar.attr("value", 0); //reset to 0
             var currentLoadingPercentage = parseInt($progressbar.attr("value"));
             window.setTimeout(() => {
-                _increaseLoadingBar(1);
+                _increaseLoadingBar(10);
                 if(currentLoadingPercentage < 100){
                     _doLoading(true, false);
                 } else {
                     console.log("loading complete");
-                    $loadingcontainer.hide();
+                    $('.nes-btn.btn--load').removeClass('is-disabled');
+                    // $loadingcontainer.hide();
                 }
             }, 100);
         } else {
@@ -125,6 +111,10 @@ var mainModule=(($)=> {
         },
         doLoading:(load)=>{
             _doLoading(load);
+            $('.nes-btn.btn--load').on('click', ()=> {
+                $containerLoading.hide();
+                $containerCountdown.show();
+            });
         }
     }
 })($);
@@ -162,9 +152,7 @@ var cdModule=(($)=> {
 
     function _initBubbles() {
         $('.sprite--chibi').each((index, item)=> {
-            console.log("attaching event to " + index);
            $(item).on('click', (el)=>{
-                
 
                 //change bubble tip
                 var isLeft = $(el.target).hasClass('left');

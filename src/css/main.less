@@ -277,17 +277,27 @@ textarea {
     margin-right:auto;
     width:90%;
 
+    #progress {
+        max-width:97%;
+    }
+
+
     &-sprites {
       padding-top:20px; 
-      display:inline-flex;
+      display:flex;
       width:100%;
       justify-content: center;
+      flex-wrap:wrap;
 
       .sprite--chibi {
         transition-duration:0.2s;
         &:active {
-          transform:translate(0,-10px);
+          transform:translate(0,-5px);
         }
+        height:100px;
+        width:100px;
+
+        
       }
     }
   }
