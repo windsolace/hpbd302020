@@ -31,6 +31,7 @@ var quotes = {
 
 var mainModule=(($)=> {
     var _introMessage = "Hello {player}!";    
+    var $progressbar = $('#progress progress');
 
     function _init() {
         var queryString = window.location.search;
@@ -40,6 +41,58 @@ var mainModule=(($)=> {
         if(playerName) player.name=playerName;
         _introMessage = _introMessage.replace("{player}", player.name);
         _doIntro();
+    }
+
+    function _increaseLoadingBar(amount) {
+        var currentLoadingPercentage = parseInt($progressbar.attr("value"));
+        if(currentLoadingPercentage < 100) {
+            $progressbar.attr("value", currentLoadingPercentage+amount);
+        }
+    }
+
+    /*
+     * Do a mini jump on click of a character sprite
+     */
+    // function _initSpriteJump() {
+    //     $('.sprite--chibi').each((index, item)=> {
+    //         $(item).on('click', (el)=>{
+    //             //jump
+    //             $(el).css('transform', 'translate(0, -10px)');
+    //             console.log("jumping");
+    //             window.setTimeout(() => {
+    //                 $(el).css('transform', 'translate(0, 10px)');
+    //                 console.log("jumped");
+    //             }, 100);
+                
+    //         });
+    //     });
+    // }
+
+    /**
+     * Start/stop the loading bar. 
+     * @param load - indicate whether to show or hide loader
+     * @param reset - indicate whether to reset the loadingbar
+     */
+    function _doLoading(load, reset) {
+        // _initSpriteJump();
+
+        var $loadingcontainer = $('.container--loading');
+        if(load) {
+            $loadingcontainer.show();
+            if(reset) $progressbar.attr("value", 0); //reset to 0
+            var currentLoadingPercentage = parseInt($progressbar.attr("value"));
+            window.setTimeout(() => {
+                _increaseLoadingBar(1);
+                if(currentLoadingPercentage < 100){
+                    _doLoading(true, false);
+                } else {
+                    console.log("loading complete");
+                    $loadingcontainer.hide();
+                }
+            }, 100);
+        } else {
+            $loadingcontainer.hide();
+        }
     }
 
     function _doIntro() {
@@ -69,6 +122,9 @@ var mainModule=(($)=> {
         },
         generateQuote: (target,charId)=>{
             _generateQuote(target,charId);
+        },
+        doLoading:(load)=>{
+            _doLoading(load);
         }
     }
 })($);
@@ -108,6 +164,8 @@ var cdModule=(($)=> {
         $('.sprite--chibi').each((index, item)=> {
             console.log("attaching event to " + index);
            $(item).on('click', (el)=>{
+                
+
                 //change bubble tip
                 var isLeft = $(el.target).hasClass('left');
                 var $balloon = $(item).parent().siblings('.nes-balloon');
@@ -136,5 +194,6 @@ var cdModule=(($)=> {
     }
 })($);
 
+mainModule.doLoading(true);
 cdModule.init();
 mainModule.init();

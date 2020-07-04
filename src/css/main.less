@@ -271,6 +271,28 @@ textarea {
   }
 }
 
+.container {
+  &--loading {
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+
+    &-sprites {
+      padding-top:20px; 
+      display:inline-flex;
+      width:100%;
+      justify-content: center;
+
+      .sprite--chibi {
+        transition-duration:0.2s;
+        &:active {
+          transform:translate(0,-10px);
+        }
+      }
+    }
+  }
+}
+
 .sprite {
 
     &--chibi {
